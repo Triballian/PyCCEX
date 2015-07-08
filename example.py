@@ -26,4 +26,5 @@
 from PyCCEX import PyCCEX
 import pprint
 a=PyCCEX("")
-pprint.pprint(a.Query("pairs", {}))
+for i, pair in enumerate(a.Query("pairs", {})["pairs"]):
+  print pair
