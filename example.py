@@ -24,7 +24,9 @@
 # DEALINGS IN THE SOFTWARE.
 
 from PyCCEX import PyCCEX
+
 import pprint
+
 a=PyCCEX("")
 for i, pair in enumerate(a.Query("pairs", {})["pairs"]):
     print pair

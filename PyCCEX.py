@@ -26,6 +26,7 @@
 import pycurl
 import StringIO
 import json
+import certifi
 
 class PyCCEX:
     
@@ -51,6 +52,8 @@ class PyCCEX:
             url+="&"+param+"="+params[param]
         b=StringIO.StringIO()
         ch=pycurl.Curl()
+#fixed "SSL certificate problem: unable to get local issuer certification" error
+        ch.setopt(pycurl.CAINFO, certifi.where())
         ch.setopt(pycurl.URL, url)
 # this next bit is because Cloudflare sucks burro balls and blocks curl...
 # we'll pretend we're Firefox
